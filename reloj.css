@@ -1,0 +1,12 @@
+
+content.widget {
+    width: 40%;
+    margin: 2em;
+    /*margin:32px; */
+}
+
+.widget p {
+    margin: auto;
+    display: inline-block;
+    line-height: 1em;
+}
