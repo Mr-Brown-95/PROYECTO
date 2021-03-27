@@ -18,6 +18,12 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="PUSH_TAGS">
+      <GitPushTagMode>
+        <option name="argument" value="--tags" />
+        <option name="title" value="All" />
+      </GitPushTagMode>
+    </option>
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
         <entry key="$PROJECT_DIR$" value="master" />
@@ -68,7 +74,7 @@
       <workItem from="1616296833569" duration="1267000" />
       <workItem from="1616357450840" duration="11803000" />
       <workItem from="1616462145004" duration="1270000" />
-      <workItem from="1616807160104" duration="1726000" />
+      <workItem from="1616807160104" duration="2036000" />
     </task>
     <task id="LOCAL-00001" summary="Test">
       <created>1616807979067</created>
@@ -91,7 +97,14 @@
       <option name="project" value="LOCAL" />
       <updated>1616808724724</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Test1">
+      <created>1616809214750</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1616809214750</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -99,6 +112,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Test" />
-    <option name="LAST_COMMIT_MESSAGE" value="Test" />
+    <MESSAGE value="Test1" />
+    <option name="LAST_COMMIT_MESSAGE" value="Test1" />
   </component>
 </project>
