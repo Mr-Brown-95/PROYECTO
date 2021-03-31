@@ -2,10 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="30985e60-e0af-4996-a5c8-e445223713ec" name="Default Changelist" comment="select">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bd/reciboCrud.php" beforeDir="false" afterPath="$PROJECT_DIR$/bd/reciboCrud.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/recibo.js" beforeDir="false" afterPath="$PROJECT_DIR$/recibo.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/recibo.php" beforeDir="false" afterPath="$PROJECT_DIR$/recibo.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

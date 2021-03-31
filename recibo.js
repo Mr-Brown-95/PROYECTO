@@ -51,6 +51,10 @@ $( document ).ready( function () {
                 data:{id:id,opcion: opcion}
             })
                 .done(function(data){
+                    var dat = JSON.parse(data);
+                    console.log(dat[0].nombre);
+                    console.log(dat[0].descripcion);
+                    console.log(dat[0].categoria);
                 })
                 .fail(function(){
                     alert('Hubo un errror al cargar productos')
