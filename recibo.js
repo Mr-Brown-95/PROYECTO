@@ -3,7 +3,7 @@ $( document ).ready( function () {
         "columnDefs": [{
             "targets": -1,
             "data": null,
-            "defaultContent": "<div class='text-center'><div class='btn-group'><button class='btn btn-primary btnEditarR'>Recibir</button></div></div>"
+            "defaultContent": "<div class='text-center'><div class='btn-group'><button class='btn btn-primary btnEditarR'>Editar</button></div></div>"
         }],
 
         //Para cambiar el lenguaje a español
@@ -24,52 +24,52 @@ $( document ).ready( function () {
         }
     } );
 
+    $( "#btnNuevoR" ).click( function () {
+        $( "#formRecibo" ).trigger( "reset" );
+        $( ".modal-header" ).css( "background-color", "#1cc88a" );
+        $( ".modal-header" ).css( "color", "white" );
+        $( ".modal-title" ).text( "Recibir Producto" );
+        $( "#modalReciboCRUD" ).modal( "show" );
+        opcion = 1; //alta
+        $.ajax({
+            type: 'POST',
+            url: 'bd/reciboCrud.php',
+            data:{opcion: opcion}
+        })
+            .done(function(data){
+                $('#idR').html(data)
+            })
+            .fail(function(){
+                alert('Hubo un errror al cargar productos')
+            })
+        $('#idR').on('change',function (){
+            opcion = 2;
+            var id = $('#idR').val()
+            $.ajax({
+                type: 'POST',
+                url: 'bd/reciboCrud.php',
+                data:{id:id,opcion: opcion}
+            })
+                .done(function(data){
+                })
+                .fail(function(){
+                    alert('Hubo un errror al cargar productos')
+                })
+        })
+        //id = null;
 
+    } );
     var fila; //capturar la fila para editar o borrar el registro
 
-//botón EDITAR
-    $( document ).on( "click", ".btnEditarR", function () {
-        fila = $( this ).closest( "tr" );
-        id = parseInt( fila.find( 'td:eq(0)' ).text() );
-        nombre = fila.find( 'td:eq(1)' ).text();
-        descripcion = fila.find( 'td:eq(2)' ).text();
-        categoria = fila.find( 'td:eq(3)' ).text();
-
-        opcion = 2; //editar
-
-        $( ".modal-header" ).css( "background-color", "#4e73df" );
-        $( ".modal-header" ).css( "color", "white" );
-        $( ".modal-title" ).text( "Editar Producto" );
-        $( "#modalReciboCRUD" ).modal( "show" );
-
-    } );
-
-//botón BORRAR
-    $( document ).on( "click", ".btnBorrarP", function () {
-        fila = $( this );
-        id = parseInt( $( this ).closest( "tr" ).find( 'td:eq(0)' ).text() );
-        opcion = 3 //borrar
-        var respuesta = confirm( "¿Está seguro de eliminar el registro: " + id + "?" );
-        if (respuesta) {
-            $.ajax( {
-                url: "bd/productoCrud.php",
-                type: "POST",
-                dataType: "json",
-                data: {opcion: opcion, id: id},
-                success: function () {
-                    tablaRecibo.row( fila.parents( 'tr' ) ).remove().draw();
-                }
-            } );
-        }
-    } );
-
+    //agregar recibo
     $( "#formRecibo" ).submit( function (e) {
         e.preventDefault();
-        nombre = $.trim( $( "#nombre" ).val() );
-        descripcion = $.trim( $( "#descripcion" ).val() );
-        categoria = $.trim( $( "#categoria" ).val() );
+        id = $.trim( $( "#id" ).val() );
+        nombre = $.trim( $( "#nombreR" ).val() );
+        descripcion = $.trim( $( "#descripcionR" ).val() );
+        categoria = $.trim( $( "#categoriaR" ).val() );
         $.ajax( {
-            url: "bd/productoCrud.php",
+            url: "bd/reciboCrud.php",
             type: "POST",
             dataType: "json",
             data: {
@@ -97,5 +97,41 @@ $( document ).ready( function () {
         $( "#modalReciboCRUD" ).modal( "hide" );
 
     } );
+/*
+* //botón EDITAR
+    $( document ).on( "click", ".btnEditarR", function () {
+        fila = $( this ).closest( "tr" );
+        id = parseInt( fila.find( 'td:eq(0)' ).text() );
+        nombre = fila.find( 'td:eq(1)' ).text();
+        descripcion = fila.find( 'td:eq(2)' ).text();
+        categoria = fila.find( 'td:eq(3)' ).text();
+
+        opcion = 2; //editar
+
+        $( ".modal-header" ).css( "background-color", "#4e73df" );
+        $( ".modal-header" ).css( "color", "white" );
+        $( ".modal-title" ).text( "Recibir Producto" );
+        $( "#modalReciboCRUD" ).modal( "show" );
+
+    } );
+
+//botón BORRAR
+    $( document ).on( "click", ".btnBorrarP", function () {
+        fila = $( this );
+        id = parseInt( $( this ).closest( "tr" ).find( 'td:eq(0)' ).text() );
+        opcion = 3 //borrar
+        var respuesta = confirm( "¿Está seguro de eliminar el registro: " + id + "?" );
+        if (respuesta) {
+            $.ajax( {
+                url: "bd/reciboCrud.php",
+                type: "POST",
+                dataType: "json",
+                data: {opcion: opcion, id: id},
+                success: function () {
+                    tablaRecibo.row( fila.parents( 'tr' ) ).remove().draw();
+                }
+            } );
+        }
+    } );*/
 
 } );//fin

@@ -13,7 +13,13 @@
         $query2->execute();
         $data=$query2->fetchAll(PDO::FETCH_ASSOC);
         ?>
-
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <button id="btnNuevoR" type="button" class="btn btn-success" data-toggle="modal">Nuevo</button>
+                </div>
+            </div>
+        </div>
         <br>
         <div class="container">
             <div class="row">
@@ -68,9 +74,26 @@
                     <form id="formRecibo">
                         <div class="modal-body">
                             <div class="form-group">
-                                <label for="cantidad" class="col-form-label">Cantidad:</label>
-                                <input type="text" class="form-control" id="cantidad">
+                                <label for="idR" class="col-form-label">ID:</label>
+                                <select id="idR" name="idR" class="form-control"> </select>
                             </div>
+                            <div class="form-group">
+                                <label for="nombreR" class="col-form-label">Nombre:</label>
+                                <input type="text" class="form-control" id="nombreR" readonly="readonly">
+                            </div>
+                            <div class="form-group">
+                                <label for="descripcionR" class="col-form-label">Descripcion:</label>
+                                <input type="text" class="form-control" id="descripcionR" readonly="readonly">
+                            </div>
+                            <div class="form-group">
+                                <label for="categoriaR" class="col-form-label">Categoria:</label>
+                                <input type="text" class="form-control" id="categoriaR" readonly="readonly">
+                            </div>
+                            <div class="form-group">
+                                <label for="cantidadR" class="col-form-label">Cantidad:</label>
+                                <input type="number" class="form-control" id="cantidadR">
+                            </div>
+
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-light" data-dismiss="modal">Cancelar</button>
