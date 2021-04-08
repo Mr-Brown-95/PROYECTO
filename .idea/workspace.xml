@@ -2,7 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="30985e60-e0af-4996-a5c8-e445223713ec" name="Default Changelist" comment="select">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/recibo.js" beforeDir="false" afterPath="$PROJECT_DIR$/recibo.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/reloj.js" beforeDir="false" afterPath="$PROJECT_DIR$/reloj.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -89,6 +91,7 @@
       <workItem from="1616462145004" duration="1270000" />
       <workItem from="1616807160104" duration="3087000" />
       <workItem from="1617137535181" duration="13181000" />
+      <workItem from="1617841249135" duration="2356000" />
     </task>
     <task id="LOCAL-00001" summary="Test">
       <created>1616807979067</created>

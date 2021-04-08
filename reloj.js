@@ -21,7 +21,7 @@
 
 
         // Obtenemos el dia se la semana y lo mostramos
-        var semana = ['Domingo', 'Lunes', 'Martes', 'Miercolcheckes', 'Jueves', 'Viernes', 'Sabado'];
+        var semana = ['Domingo', 'Lunes', 'Martes', 'Miercoles', 'Jueves', 'Viernes', 'Sabado'];
         pDiaSemana.textContent = semana[diaSemana];
 
         // Obtenemos el dia del mes

@@ -83,7 +83,7 @@
                             </div>
                             <div class="form-group">
                                 <label for="descripcionR" class="col-form-label">Descripcion:</label>
-                                <input type="text" class="form-control" id="descripcionR" readonly="readonly">
+                                <input type="text" class="form-control" id="descripcionR" readonly="readonly" >
                             </div>
                             <div class="form-group">
                                 <label for="categoriaR" class="col-form-label">Categoria:</label>

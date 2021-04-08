@@ -55,6 +55,9 @@ $( document ).ready( function () {
                     console.log(dat[0].nombre);
                     console.log(dat[0].descripcion);
                     console.log(dat[0].categoria);
+                    $("#nombreR").val(dat[0].nombre);
+                    $("#descripcionR").val(dat[0].descripcion);
+                    $("#categoriaR").val(dat[0].categoria);
                 })
                 .fail(function(){
                     alert('Hubo un errror al cargar productos')
