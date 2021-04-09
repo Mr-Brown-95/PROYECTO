@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="30985e60-e0af-4996-a5c8-e445223713ec" name="Default Changelist" comment="select">
+    <list default="true" id="30985e60-e0af-4996-a5c8-e445223713ec" name="Default Changelist" comment="Recibo">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bd/reciboCrud.php" beforeDir="false" afterPath="$PROJECT_DIR$/bd/reciboCrud.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/recibo.js" beforeDir="false" afterPath="$PROJECT_DIR$/recibo.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/reloj.js" beforeDir="false" afterPath="$PROJECT_DIR$/reloj.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/recibo.php" beforeDir="false" afterPath="$PROJECT_DIR$/recibo.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vistas/parte_superior.php" beforeDir="false" afterPath="$PROJECT_DIR$/vistas/parte_superior.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,6 +45,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="ChangesTree.GroupingKeys" value="" />
+    <property name="DatabaseDriversLRU" value="mysql&#10;sqlserver" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
@@ -91,7 +94,7 @@
       <workItem from="1616462145004" duration="1270000" />
       <workItem from="1616807160104" duration="3087000" />
       <workItem from="1617137535181" duration="13181000" />
-      <workItem from="1617841249135" duration="2356000" />
+      <workItem from="1617841249135" duration="15031000" />
     </task>
     <task id="LOCAL-00001" summary="Test">
       <created>1616807979067</created>
@@ -135,7 +138,14 @@
       <option name="project" value="LOCAL" />
       <updated>1616809675897</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="select">
+      <created>1617844311775</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1617844311775</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -147,6 +157,7 @@
     <MESSAGE value="Test2" />
     <MESSAGE value="Test3" />
     <MESSAGE value="select" />
-    <option name="LAST_COMMIT_MESSAGE" value="select" />
+    <MESSAGE value="Recibo" />
+    <option name="LAST_COMMIT_MESSAGE" value="Recibo" />
   </component>
 </project>

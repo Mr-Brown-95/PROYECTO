@@ -1,10 +1,7 @@
 $( document ).ready( function () {
     tablaRecibo = $( "#tablaRecibo" ).DataTable( {
         "columnDefs": [{
-            "targets": -1,
-            "data": null,
-            "defaultContent": "<div class='text-center'><div class='btn-group'><button class='btn btn-primary btnEditarR'>Editar</button></div></div>"
-        }],
+            "data": null,}],
 
         //Para cambiar el lenguaje a español
         "language": {
@@ -31,50 +28,62 @@ $( document ).ready( function () {
         $( ".modal-title" ).text( "Recibir Producto" );
         $( "#modalReciboCRUD" ).modal( "show" );
         opcion = 1; //alta
-        $.ajax({
+        $.ajax( {
             type: 'POST',
             url: 'bd/reciboCrud.php',
-            data:{opcion: opcion}
-        })
-            .done(function(data){
-                $('#idR').html(data)
-            })
-            .fail(function(){
-                alert('Hubo un errror al cargar productos')
-            })
-        $('#idR').on('change',function (){
+            data: {opcion: opcion}
+        } )
+            .done( function (data) {
+                $( '#idR' ).html( data )
+            } )
+            .fail( function () {
+                alert( 'Hubo un errror al cargar productos' )
+            } )
+        $( '#idR' ).on( 'change', function () {
             opcion = 2;
-            var id = $('#idR').val()
-            $.ajax({
+            var id = $( '#idR' ).val()
+            $.ajax( {
                 type: 'POST',
                 url: 'bd/reciboCrud.php',
-                data:{id:id,opcion: opcion}
-            })
-                .done(function(data){
-                    var dat = JSON.parse(data);
-                    console.log(dat[0].nombre);
-                    console.log(dat[0].descripcion);
-                    console.log(dat[0].categoria);
-                    $("#nombreR").val(dat[0].nombre);
-                    $("#descripcionR").val(dat[0].descripcion);
-                    $("#categoriaR").val(dat[0].categoria);
-                })
-                .fail(function(){
-                    alert('Hubo un errror al cargar productos')
-                })
-        })
+                data: {id: id, opcion: opcion}
+            } )
+                .done( function (data) {
+                    var dat = JSON.parse( data );
+                    $( "#nombreR" ).val( dat[0].nombre );
+                    $( "#descripcionR" ).val( dat[0].descripcion );
+                    $( "#categoriaR" ).val( dat[0].categoria );
+
+                } )
+                .fail( function () {
+                    alert( 'Hubo un errror al cargar productos' )
+                } )
+        } )
         //id = null;
 
     } );
     var fila; //capturar la fila para editar o borrar el registro
-
+    var fecha = new Date(),
+        diaSemana = fecha.getDate(),
+        mes = fecha.getMonth(),
+        year = fecha.getFullYear();
+    mes = mes + 1;
+    if (diaSemana < 10) {
+        diaSemana = "0" + diaSemana;
+    }
+    if (mes < 10) {
+        mes = "0" + mes;
+    }
+    var fechaEntrada = year + "-" + mes + "-" + diaSemana;
     //agregar recibo
     $( "#formRecibo" ).submit( function (e) {
+        opcion = 3;
         e.preventDefault();
-        id = $.trim( $( "#id" ).val() );
+        id = $( '#idR' ).val()
         nombre = $.trim( $( "#nombreR" ).val() );
         descripcion = $.trim( $( "#descripcionR" ).val() );
         categoria = $.trim( $( "#categoriaR" ).val() );
+        cantidadEntrada = $.trim( $( "#cantidadR" ).val() );
+        IdEmpRecibo = $.trim( $( "#IdEmpRecibo" ).val() );
         $.ajax( {
             url: "bd/reciboCrud.php",
             type: "POST",
@@ -83,6 +92,9 @@ $( document ).ready( function () {
                 nombre: nombre,
                 descripcion: descripcion,
                 categoria: categoria,
+                cantidadEntrada: cantidadEntrada,
+                fechaEntrada: fechaEntrada,
+                IdEmpRecibo:IdEmpRecibo,
                 id: id,
                 opcion: opcion
             },
@@ -93,52 +105,19 @@ $( document ).ready( function () {
                 nombre = data[0].nombre;
                 descripcion = data[0].descripcion;
                 categoria = data[0].categoria;
+                cantidadEntrada = data[0].cantidadEntrada;
+                fechaEntrada = data[0].fechaEntrada;
+                IdEmpRecibo = data[0].IdEmpRecibo;
 
-                if (opcion == 1) {
-                    tablaRecibo.row.add( [id, nombre, descripcion, categoria] ).draw();
+                if (opcion == 3) {
+                    tablaRecibo.row.add( [id, nombre, descripcion, categoria, cantidadEntrada, fechaEntrada, IdEmpRecibo] ).draw();
                 } else {
-                    tablaRecibo.row( fila ).data( [id, nombre, descripcion, categoria] ).draw();
+                    tablaRecibo.row( fila ).data( [id, nombre, descripcion, categoria, cantidadEntrada, fechaEntrada, IdEmpRecibo] ).draw();
                 }
             }
         } );
         $( "#modalReciboCRUD" ).modal( "hide" );
 
     } );
-/*
-* //botón EDITAR
-    $( document ).on( "click", ".btnEditarR", function () {
-        fila = $( this ).closest( "tr" );
-        id = parseInt( fila.find( 'td:eq(0)' ).text() );
-        nombre = fila.find( 'td:eq(1)' ).text();
-        descripcion = fila.find( 'td:eq(2)' ).text();
-        categoria = fila.find( 'td:eq(3)' ).text();
-
-        opcion = 2; //editar
-
-        $( ".modal-header" ).css( "background-color", "#4e73df" );
-        $( ".modal-header" ).css( "color", "white" );
-        $( ".modal-title" ).text( "Recibir Producto" );
-        $( "#modalReciboCRUD" ).modal( "show" );
-
-    } );
-
-//botón BORRAR
-    $( document ).on( "click", ".btnBorrarP", function () {
-        fila = $( this );
-        id = parseInt( $( this ).closest( "tr" ).find( 'td:eq(0)' ).text() );
-        opcion = 3 //borrar
-        var respuesta = confirm( "¿Está seguro de eliminar el registro: " + id + "?" );
-        if (respuesta) {
-            $.ajax( {
-                url: "bd/reciboCrud.php",
-                type: "POST",
-                dataType: "json",
-                data: {opcion: opcion, id: id},
-                success: function () {
-                    tablaRecibo.row( fila.parents( 'tr' ) ).remove().draw();
-                }
-            } );
-        }
-    } );*/
 
 } );//fin

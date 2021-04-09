@@ -35,7 +35,6 @@
                                 <th>Cantidad de ingreso</th>
                                 <th>Fecha de recibo</th>
                                 <th>Id de empleado de recibo</th>
-                                <th>Acciones</th>
                             </tr>
                             </thead>
                             <tbody>
@@ -50,7 +49,6 @@
                                     <td><?php echo $dat['cantidadEntrada'] ?></td>
                                     <td><?php echo $dat['fechaEntrada'] ?></td>
                                     <td><?php echo $dat['IdEmpRecibo'] ?></td>
-                                    <td></td>
                                 </tr>
                                 <?php
                             }
@@ -74,7 +72,7 @@
                     <form id="formRecibo">
                         <div class="modal-body">
                             <div class="form-group">
-                                <label for="idR" class="col-form-label">ID:</label>
+                                <label for="idR" class="col-form-label">ID producto:</label>
                                 <select id="idR" name="idR" class="form-control"> </select>
                             </div>
                             <div class="form-group">

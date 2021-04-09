@@ -3,6 +3,9 @@ include_once 'conexion.php';
 $pdo = new Conexion();;
 
 // Recepción de los datos enviados mediante POST desde el JS
+
+$IdEmpRecibo = (isset($_POST['IdEmpRecibo'])) ? $_POST['IdEmpRecibo'] : '';
+$fechaEntrada = (isset($_POST['fechaEntrada'])) ? $_POST['fechaEntrada'] : '';
 $cantidadEntrada= (isset($_POST['cantidadEntrada'])) ? $_POST['cantidadEntrada'] : '';
 $opcion = (isset($_POST['opcion'])) ? $_POST['opcion'] : '';
 $id = (isset($_POST['id'])) ? $_POST['id'] : '';
@@ -14,7 +17,7 @@ switch ($opcion) {
         $query2->execute();
         $data = '<option value=0> Elige una opción' ;
         $list=$query2->fetchAll(PDO::FETCH_ASSOC);
-         foreach($list as $dat){
+        foreach($list as $dat){
             $data .= "<option value='$dat[id]'>$dat[id] ";
         }
         break;
@@ -23,15 +26,14 @@ switch ($opcion) {
         $query2->execute();
         $data = $query2->fetchAll(PDO::FETCH_ASSOC);
         break;
-    case 3://baja
-        $query2 = $pdo->prepare("UPDATE producto SET cantidadEntrada = '$cantidadEntrada' WHERE id = '$id'");
+    case 3://
+        //, IdEmpRecibo = '$IdEmpRecibo'
+        $query2 = $pdo->prepare("UPDATE producto SET fechaEntrada = '$fechaEntrada', cantidadEntrada = '$cantidadEntrada'WHERE id = '$id'");
         $query2->execute();
 
         $query2 = $pdo->prepare("SELECT * FROM producto");
         $query2->execute();
         $data = $query2->fetchAll(PDO::FETCH_ASSOC);
-        /*$query2 = $pdo->prepare("DELETE FROM producto WHERE id='$id' ");
-        $query2->execute();*/
         break;
 }
 print json_encode($data, JSON_UNESCAPED_UNICODE); //enviar el array final en formato json a JS
