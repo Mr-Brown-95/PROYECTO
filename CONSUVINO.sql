@@ -26,7 +26,8 @@ SET time_zone = "+00:00";
 --
 -- Estructura de tabla para la tabla `producto`
 --
-
+create  database CONSUVINO;
+use CONSUVINO;
 CREATE TABLE `producto` (
                             `id` int(11) NOT NULL,
                             `nombre` varchar(50) NOT NULL,
