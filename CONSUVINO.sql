@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: localhost
--- Tiempo de generación: 10-04-2021 a las 02:41:29
+-- Tiempo de generación: 10-04-2021 a las 03:33:11
 -- Versión del servidor: 10.4.14-MariaDB
 -- Versión de PHP: 7.4.10
 
@@ -26,21 +26,19 @@ SET time_zone = "+00:00";
 --
 -- Estructura de tabla para la tabla `producto`
 --
-create database CONSUVINO;
-use CONSUVINO;
 
 CREATE TABLE `producto` (
-  `id` int(11) NOT NULL,
-  `nombre` varchar(50) NOT NULL,
-  `descripcion` varchar(100) NOT NULL,
-  `categoria` varchar(50) NOT NULL,
-  `existencia` int(11) DEFAULT NULL,
-  `fechaEntrada` date DEFAULT NULL,
-  `cantidadEntrada` int(11) DEFAULT NULL,
-  `fechaSalida` varchar(50) DEFAULT NULL,
-  `cantidadSalida` int(11) DEFAULT NULL,
-  `IdEmpRecibo` int(11) DEFAULT NULL,
-  `IdEmpSurte` int(11) DEFAULT NULL
+                            `id` int(11) NOT NULL,
+                            `nombre` varchar(50) NOT NULL,
+                            `descripcion` varchar(100) NOT NULL,
+                            `categoria` varchar(50) NOT NULL,
+                            `existencia` int(11) DEFAULT 0,
+                            `fechaEntrada` date DEFAULT NULL,
+                            `cantidadEntrada` int(11) DEFAULT NULL,
+                            `fechaSalida` varchar(50) DEFAULT NULL,
+                            `cantidadSalida` int(11) DEFAULT NULL,
+                            `IdEmpRecibo` int(11) DEFAULT NULL,
+                            `IdEmpSurte` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -48,8 +46,10 @@ CREATE TABLE `producto` (
 --
 
 INSERT INTO `producto` (`id`, `nombre`, `descripcion`, `categoria`, `existencia`, `fechaEntrada`, `cantidadEntrada`, `fechaSalida`, `cantidadSalida`, `IdEmpRecibo`, `IdEmpSurte`) VALUES
-(1, 'uno', 'uno', 'uno', 20, '2021-04-08', 8, NULL, NULL, 1, NULL),
-(2, 'dos', 'dos\r\n', 'dos', 1, '2021-04-09', 66, NULL, NULL, 1, NULL);
+(1, 'uno', 'uno', 'uno', 20, '2021-04-09', 100, NULL, NULL, 1, NULL),
+(2, 'dos', 'dos\r\n', 'dos', 1, '2021-04-09', 99999, NULL, NULL, 1, NULL),
+(58, 'Tres', 'Tres', 'Tres', 0, NULL, NULL, NULL, NULL, NULL, NULL),
+(59, 'Cuatro', 'Cuatro', 'Cuatro', 0, NULL, NULL, NULL, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -58,13 +58,13 @@ INSERT INTO `producto` (`id`, `nombre`, `descripcion`, `categoria`, `existencia`
 --
 
 CREATE TABLE `serie` (
-  `id` int(11) NOT NULL,
-  `nombreSerie` varchar(50) NOT NULL,
-  `sinopsis` varchar(300) NOT NULL,
-  `actores` varchar(150) NOT NULL,
-  `url` varchar(100) DEFAULT NULL,
-  `fechaEstreno` varchar(50) NOT NULL,
-  `activo` tinyint(4) NOT NULL DEFAULT 1
+                         `id` int(11) NOT NULL,
+                         `nombreSerie` varchar(50) NOT NULL,
+                         `sinopsis` varchar(300) NOT NULL,
+                         `actores` varchar(150) NOT NULL,
+                         `url` varchar(100) DEFAULT NULL,
+                         `fechaEstreno` varchar(50) NOT NULL,
+                         `activo` tinyint(4) NOT NULL DEFAULT 1
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -101,7 +101,8 @@ CREATE TABLE `ubicacion` (
 --
 
 INSERT INTO `ubicacion` (`id`, `pasillo`, `rack`, `nivel`, `idEmpleado`) VALUES
-(19, '3', 'rack3', 3, 1);
+(19, '3', 'rack3', 3, 1),
+(21, '10', '10', 10, 10);
 
 -- --------------------------------------------------------
 
@@ -132,7 +133,8 @@ INSERT INTO `usuario` (`id`, `nombreUsuario`, `usuario`, `password`, `foto`, `pr
 (114, 'aa', 'aa', '$2y$10$y0M8MDKGPUGlzMMjr54UQ.xpRtLRJq1/T9yhE.7dbVJU351dBsMbO', '', 'a', 1),
 (115, 'dos dos', 'dos@.com', '$2y$10$7hV0jFEifqx0nogtvZR84uFWwN7itH14EB8KDK6JESt1iVG0YcSkG', 'img/1.png', 'General', 0),
 (116, 'khb', 'ñkn', '$2y$10$y6BXlb89/rhRr4IYlVNH1.cJioGz4hb8o2eiU6mCIkDj89VKvpTvy', '', 'General', 1),
-(117, 'prueba10 prueba10', 'asdfAdministrador', '$2y$10$qfvslIMBYSknZKMupwWhhuvMxxX.b5yJjJJ7bb8IEXCc6E/O02jCa', '', 'General', 1);
+(117, 'prueba10 prueba10', 'asdfAdministrador', '$2y$10$qfvslIMBYSknZKMupwWhhuvMxxX.b5yJjJJ7bb8IEXCc6E/O02jCa', '', 'General', 1),
+(118, 'mensajero', 'mensajero@mensajero.com', '$2y$10$6spZ7vDn5BSjxBzgn7ZbcOdqXw94mWlRoKCzJNCDyyCX4ndfQS68G', '', 'General', 1);
 
 --
 -- Índices para tablas volcadas
@@ -170,7 +172,7 @@ ALTER TABLE `usuario`
 -- AUTO_INCREMENT de la tabla `producto`
 --
 ALTER TABLE `producto`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=58;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=60;
 
 --
 -- AUTO_INCREMENT de la tabla `serie`
@@ -182,13 +184,13 @@ ALTER TABLE `serie`
 -- AUTO_INCREMENT de la tabla `ubicacion`
 --
 ALTER TABLE `ubicacion`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- AUTO_INCREMENT de la tabla `usuario`
 --
 ALTER TABLE `usuario`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=118;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=119;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

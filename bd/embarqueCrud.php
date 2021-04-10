@@ -4,9 +4,9 @@ $pdo = new Conexion();;
 
 // Recepción de los datos enviados mediante POST desde el JS
 
-$IdEmpRecibo = (isset($_POST['IdEmpRecibo'])) ? $_POST['IdEmpRecibo'] : '';
-$fechaEntrada = (isset($_POST['fechaEntrada'])) ? $_POST['fechaEntrada'] : '';
-$cantidadEntrada= (isset($_POST['cantidadEntrada'])) ? $_POST['cantidadEntrada'] : '';
+$IdEmpSurte = (isset($_POST['IdEmpSurte'])) ? $_POST['IdEmpSurte'] : '';
+$fechaSalida = (isset($_POST['fechaSalida'])) ? $_POST['fechaSalida'] : '';
+$cantidadSalida= (isset($_POST['cantidadSalida'])) ? $_POST['cantidadSalida'] : '';
 $opcion = (isset($_POST['opcion'])) ? $_POST['opcion'] : '';
 $id = (isset($_POST['id'])) ? $_POST['id'] : '';
 
@@ -15,20 +15,20 @@ switch ($opcion) {
 
         $query2 = $pdo->prepare("SELECT id FROM producto");
         $query2->execute();
-        $data = '<option value=0> Elige una opción' ;
+        $data = '<option value=0> Elige una opción' ;// <option  value=0>Elige una opción</option>
         $list=$query2->fetchAll(PDO::FETCH_ASSOC);
         foreach($list as $dat){
             $data .= "<option value='$dat[id]'>$dat[id] ";
         }
         break;
-    case 2: //modificación
+    case 2: //consulta2
         $query2 = $pdo->prepare("SELECT nombre,descripcion,categoria FROM producto WHERE id = '$id'");
         $query2->execute();
         $data = $query2->fetchAll(PDO::FETCH_ASSOC);
         break;
     case 3://
-        //, IdEmpRecibo = '$IdEmpRecibo'
-        $query2 = $pdo->prepare("UPDATE producto SET fechaEntrada = '$fechaEntrada', cantidadEntrada = '$cantidadEntrada'WHERE id = '$id'");
+        //, IdEmpSurte = 'IdEmpSurte'
+        $query2 = $pdo->prepare("UPDATE producto SET fechaSalida = '$fechaSalida', cantidadSalida = '$cantidadSalida'WHERE id = '$id'");
         $query2->execute();
 
         $query2 = $pdo->prepare("SELECT * FROM producto");

@@ -2,7 +2,7 @@
 
     <!--INICIO del cont principal-->
     <div class="container">
-        <h1>Recibo</h1>
+        <h1>Embarque</h1>
 
 
 
@@ -16,7 +16,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
-                    <button id="btnNuevoR" type="button" class="btn btn-success" data-toggle="modal">Nuevo</button>
+                    <button id="btnNuevoE" type="button" class="btn btn-success" data-toggle="modal">Nuevo</button>
                 </div>
             </div>
         </div>
@@ -25,16 +25,16 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="table-responsive">
-                        <table id="tablaRecibo" class="table table-striped table-bordered table-condensed" style="width:100%">
+                        <table id="tablaEmbarque" class="table table-striped table-bordered table-condensed" style="width:100%">
                             <thead class="text-center">
                             <tr>
                                 <th>Id</th>
                                 <th>Nombre</th>
                                 <th>Descripcion</th>
                                 <th>Categoria</th>
-                                <th>Cantidad de ingreso</th>
-                                <th>Fecha de recibo</th>
-                                <th>Id de empleado de recibo</th>
+                                <th>Cantidad de surtido</th>
+                                <th>Fecha de surtido</th>
+                                <th>Id de empleado de surtido</th>
                             </tr>
                             </thead>
                             <tbody>
@@ -46,9 +46,9 @@
                                     <td><?php echo $dat['nombre'] ?></td>
                                     <td><?php echo $dat['descripcion'] ?></td>
                                     <td><?php echo $dat['categoria'] ?></td>
-                                    <td><?php echo $dat['cantidadEntrada'] ?></td>
-                                    <td><?php echo $dat['fechaEntrada'] ?></td>
-                                    <td><?php echo $dat['IdEmpRecibo'] ?></td>
+                                    <td><?php echo $dat['cantidadSalida'] ?></td>
+                                    <td><?php echo $dat['fechaSalida'] ?></td>
+                                    <td><?php echo $dat['IdEmpSurte'] ?></td>
                                 </tr>
                                 <?php
                             }
@@ -61,7 +61,7 @@
         </div>
 
         <!--Modal para CRUD Recibo-->
-        <div class="modal fade" id="modalReciboCRUD" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal fade" id="modalEmbarqueCRUD" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -69,27 +69,27 @@
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span>
                         </button>
                     </div>
-                    <form id="formRecibo">
+                    <form id="formEmbarque">
                         <div class="modal-body">
                             <div class="form-group">
-                                <label for="idR" class="col-form-label">ID producto:</label>
-                                <select id="idR" name="idR" class="form-control"> </select>
+                                <label for="idE" class="col-form-label">ID producto:</label>
+                                <select id="idE" name="idE" class="form-control"> </select>
                             </div>
                             <div class="form-group">
-                                <label for="nombreR" class="col-form-label">Nombre:</label>
-                                <input type="text" class="form-control" id="nombreR" readonly="readonly">
+                                <label for="nombreE" class="col-form-label">Nombre:</label>
+                                <input type="text" class="form-control" id="nombreE" readonly="readonly">
                             </div>
                             <div class="form-group">
-                                <label for="descripcionR" class="col-form-label">Descripcion:</label>
-                                <input type="text" class="form-control" id="descripcionR" readonly="readonly" >
+                                <label for="descripcionE" class="col-form-label">Descripcion:</label>
+                                <input type="text" class="form-control" id="descripcionE" readonly="readonly" >
                             </div>
                             <div class="form-group">
-                                <label for="categoriaR" class="col-form-label">Categoria:</label>
-                                <input type="text" class="form-control" id="categoriaR" readonly="readonly">
+                                <label for="categoriaE" class="col-form-label">Categoria:</label>
+                                <input type="text" class="form-control" id="categoriaE" readonly="readonly">
                             </div>
                             <div class="form-group">
-                                <label for="cantidadR" class="col-form-label">Cantidad:</label>
-                                <input type="number" class="form-control" id="cantidadR">
+                                <label for="cantidadSalida" class="col-form-label">Cantidad:</label>
+                                <input type="number" class="form-control" id="cantidadSalida">
                             </div>
 
                         </div>

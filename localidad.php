@@ -7,7 +7,7 @@
 
 
         <?php
-        include_once 'bd/conexion.php';
+        include_once 'bd/conexionBD.php';
         $pdo = new Conexion();
         $query2 =$pdo->prepare("SELECT * FROM ubicacion ");
         $query2->execute();

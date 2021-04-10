@@ -7,7 +7,7 @@
 
 
         <?php
-        include_once 'bd/conexion.php';
+        include_once 'bd/conexionBD.php';
         $pdo = new Conexion();
         $query2 =$pdo->prepare("SELECT id, nombre, descripcion, categoria, existencia FROM producto");
         $query2->execute();

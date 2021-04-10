@@ -73,13 +73,15 @@ include 'loginSecurity.php';
 
         <!-- Nav Item - Embarque -->
         <li class="nav-item">
-            <a class="nav-link" href="#"><i class="fas fa-fw fa-table"></i><span>Embarque</span></a>
+            <a class="nav-link" href="embarque.php"><i class="fas fa-fw fa-table"></i><span>Embarque</span></a>
         </li>
 
         <!-- Nav Item - Movimientos -->
+        <!--
         <li class="nav-item">
             <a class="nav-link" href="#"><i class="fas fa-fw fa-table"></i><span>Movimientos</span></a>
         </li>
+        --->
 
         <?php
         if ($_SESSION['privilegios'] == 'Administrador') {

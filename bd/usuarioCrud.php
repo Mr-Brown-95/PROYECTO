@@ -1,5 +1,5 @@
 <?php
-include_once 'conexion.php';
+include_once 'conexionBD.php';
 $pdo = new Conexion();;
 
 // Recepción de los datos enviados mediante POST desde el JS

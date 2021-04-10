@@ -52,17 +52,15 @@
   <!-- Custom scripts for all pages-->
   <script src="js/sb-admin-2.min.js"></script>
 
- 
-
-  
-    <!-- datatables JS -->
-    <script type="text/javascript" src="vendor/datatables/datatables.min.js"></script>    
-    <!-- código propio JS -->
-       <!-- <script type="text/javascript" src="usuario.js"></script>
+      <!-- datatables JS -->
+      <script type="text/javascript" src="vendor/datatables/datatables.min.js"></script>
+      <!-- código propio JS -->
+      <script type="text/javascript" src="usuario.js"></script>
       <script type="text/javascript" src="localidad.js"></script>
-       <script type="text/javascript" src="producto.js"></script>
-      <script type="text/javascript" src="inventario.js"></script> -->
+      <script type="text/javascript" src="producto.js"></script>
+      <script type="text/javascript" src="inventario.js"></script>
       <script type="text/javascript" src="recibo.js"></script>
+      <script type="text/javascript" src="embarque.js"></script>
 
 
 
