@@ -4,7 +4,7 @@ class Conexion extends PDO{
 
     private $tipoBase = 'mysql';
     private $host = '192.168.0.10';
-    private $database = 'MCU';
+    private $database = 'CONSUVINO';
     private $user = 'android';
     private $password = '12345';
     private $puerto='8080';
