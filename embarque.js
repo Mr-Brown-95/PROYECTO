@@ -98,15 +98,15 @@ $( document ).ready( function () {
                 opcion: opcion
             },
             success: function (data) {
-                console.log( data );
+                var lengthData = data.length - 1 ;
 
-                id = data[0].id;
-                nombre = data[0].nombre;
-                descripcion = data[0].descripcion;
-                categoria = data[0].categoria;
-                cantidadSalida = data[0].cantidadSalida;
-                fechaSalida = data[0].fechaSalida;
-                IdEmpSurte = data[0].IdEmpSurte;
+                id = data[lengthData].id;
+                nombre = data[lengthData].nombre;
+                descripcion = data[lengthData].descripcion;
+                categoria = data[lengthData].categoria;
+                cantidadSalida = data[lengthData].cantidadSalida;
+                fechaSalida = data[lengthData].fechaSalida;
+                IdEmpSurte = data[lengthData].IdEmpSurte;
 
                 if (opcion == 3) {
                     tablaEmbarque.row.add( [id, nombre, descripcion, categoria, cantidadSalida, fechaSalida, IdEmpSurte] ).draw();

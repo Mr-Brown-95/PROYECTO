@@ -89,12 +89,12 @@ $( document ).ready( function () {
                 opcion: opcion
             },
             success: function (data) {
+                var lengthData = data.length - 1 ;
                 console.log( data );
-
-                id = data[0].id;
-                nombre = data[0].nombre;
-                descripcion = data[0].descripcion;
-                categoria = data[0].categoria;
+                id = data[lengthData].id;
+                nombre = data[lengthData].nombre;
+                descripcion = data[lengthData].descripcion;
+                categoria = data[lengthData].categoria;
 
                 if (opcion == 1) {
                     tablaProducto.row.add( [id, nombre, descripcion, categoria] ).draw();

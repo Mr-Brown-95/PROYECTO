@@ -77,10 +77,7 @@ $(document).on("click", ".btnBorrarU", function(){
             }
         });
     }
-});/*
- success: function(){
-                tablaPersonas.row(fila.parents('tr')).remove().draw();
-            }*/
+});
 
 $("#formPersonas").submit(function(e){
     e.preventDefault();
@@ -95,13 +92,14 @@ $("#formPersonas").submit(function(e){
         dataType: "json",
         data:{nombreUsuario:nombreUsuario, usuario:usuario, password:password, privilegios:privilegios, activo:activo, id:id, opcion:opcion},
         success: function(data){
-            console.log(data);
-            id = data[0].id;
-            nombreUsuario = data[0].nombreUsuario;
-            usuario = data[0].usuario;
-            password = data[0].password;
-            privilegios = data[0].privilegios;
-            activo = data[0].activo;
+            var lengthData = data.length - 1 ;
+
+            id = data[lengthData].id;
+            nombreUsuario = data[lengthData].nombreUsuario;
+            usuario = data[lengthData].usuario;
+            password = data[lengthData].password;
+            privilegios = data[lengthData].privilegios;
+            activo = data[lengthData].activo;
             if(opcion == 1){tablaPersonas.row.add([id,nombreUsuario,usuario,password,privilegios,activo]).draw();}
             else{tablaPersonas.row(fila).data([id,nombreUsuario,usuario,password,privilegios,activo]).draw();}
         }

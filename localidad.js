@@ -89,12 +89,14 @@ $(document).ready(function(){
             dataType: "json",
             data:{pasillo:pasillo, rack:rack, nivel:nivel, idEmpleado:idEmpleado, id:id, opcion:opcion},
             success: function(data){
-                console.log(data);
-                id = data[0].id;
-                pasillo = data[0].pasillo;
-                rack = data[0].rack;
-                nivel = data[0].nivel;
-                idEmpleado = data[0].idEmpleado;
+
+                var lengthData = data.length - 1 ;
+
+                id = data[lengthData].id;
+                pasillo = data[lengthData].pasillo;
+                rack = data[lengthData].rack;
+                nivel = data[lengthData].nivel;
+                idEmpleado = data[lengthData].idEmpleado;
                 if(opcion == 1){tablaUbicacion.row.add([id,pasillo,rack,nivel,idEmpleado]).draw();}
                 else{tablaUbicacion.row(fila).data([id,pasillo,rack,nivel,idEmpleado]).draw();}
             }

@@ -77,7 +77,6 @@ $( document ).ready( function () {
     //agregar recibo
     $( "#formRecibo" ).submit( function (e) {
         opcion = 3;
-        e.preventDefault();
         id = $( '#idR' ).val()
         nombre = $.trim( $( "#nombreR" ).val() );
         descripcion = $.trim( $( "#descripcionR" ).val() );
@@ -99,15 +98,16 @@ $( document ).ready( function () {
                 opcion: opcion
             },
             success: function (data) {
-                console.log( data );
+                var lengthData = data.length - 1 ;
+                console.log(data);
+                id = data[lengthData].id;
+                nombre = data[lengthData].nombre;
+                descripcion = data[lengthData].descripcion;
+                categoria = data[lengthData].categoria;
+                cantidadEntrada = data[lengthData].cantidadEntrada;
+                fechaEntrada = data[lengthData].fechaEntrada;
+                IdEmpRecibo = data[lengthData].IdEmpRecibo;
 
-                id = data[0].id;
-                nombre = data[0].nombre;
-                descripcion = data[0].descripcion;
-                categoria = data[0].categoria;
-                cantidadEntrada = data[0].cantidadEntrada;
-                fechaEntrada = data[0].fechaEntrada;
-                IdEmpRecibo = data[0].IdEmpRecibo;
 
                 if (opcion == 3) {
                     tablaRecibo.row.add( [id, nombre, descripcion, categoria, cantidadEntrada, fechaEntrada, IdEmpRecibo] ).draw();
