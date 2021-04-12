@@ -34,7 +34,6 @@
                                 <th>Categoria</th>
                                 <th>Cantidad de surtido</th>
                                 <th>Fecha de surtido</th>
-                                <th>Id de empleado de surtido</th>
                             </tr>
                             </thead>
                             <tbody>
@@ -48,7 +47,6 @@
                                     <td><?php echo $dat['categoria'] ?></td>
                                     <td><?php echo $dat['cantidadSalida'] ?></td>
                                     <td><?php echo $dat['fechaSalida'] ?></td>
-                                    <td><?php echo $dat['IdEmpSurte'] ?></td>
                                 </tr>
                                 <?php
                             }

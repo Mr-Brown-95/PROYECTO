@@ -44,6 +44,10 @@ $( document ).ready( function () {
         descripcion = fila.find( 'td:eq(2)' ).text();
         categoria = fila.find( 'td:eq(3)' ).text();
 
+        $("#nombre").val(nombre);
+        $("#descripcion").val(descripcion);
+        $("#categoria").val(categoria);
+
         opcion = 2; //editar
 
         $( ".modal-header" ).css( "background-color", "#4e73df" );
@@ -54,23 +58,24 @@ $( document ).ready( function () {
     } );
 
 //botón BORRAR
-    $( document ).on( "click", ".btnBorrarP", function () {
+    $(document).on("click", ".btnBorrarP",function(){
         fila = $( this );
         id = parseInt( $( this ).closest( "tr" ).find( 'td:eq(0)' ).text() );
         opcion = 3 //borrar
         var respuesta = confirm( "¿Está seguro de eliminar el registro: " + id + "?" );
-        if (respuesta) {
-            $.ajax( {
-                url: "bd/productoCrud.php",
-                type: "POST",
-                dataType: "json",
-                data: {opcion: opcion, id: id},
-                success: function () {
-                    tablaProducto.row( fila.parents( 'tr' ) ).remove().draw();
+        if (respuesta){
+            $.ajax({
+                url:"bd/productoCrud.php",
+                type:"POST",
+                dataType:"json",
+                data:{opcion: opcion, id: id},
+                success:function(){
+                    tablaProducto.row(fila.parents('tr')).remove().draw();
+                    alert("hlis");
                 }
-            } );
+            });
         }
-    } );
+    });
 
     $( "#formProducto" ).submit( function (e) {
         e.preventDefault();

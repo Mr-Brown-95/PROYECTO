@@ -34,7 +34,6 @@
                                 <th>Categoria</th>
                                 <th>Cantidad de ingreso</th>
                                 <th>Fecha de recibo</th>
-                                <th>Id de empleado de recibo</th>
                             </tr>
                             </thead>
                             <tbody>
@@ -48,7 +47,6 @@
                                     <td><?php echo $dat['categoria'] ?></td>
                                     <td><?php echo $dat['cantidadEntrada'] ?></td>
                                     <td><?php echo $dat['fechaEntrada'] ?></td>
-                                    <td><?php echo $dat['IdEmpRecibo'] ?></td>
                                 </tr>
                                 <?php
                             }

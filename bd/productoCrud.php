@@ -1,6 +1,6 @@
 <?php
 include_once 'conexionBD.php';
-$pdo = new Conexion();;
+$pdo = new Conexion();
 
 // Recepción de los datos enviados mediante POST desde el JS
 $nombre = (isset($_POST['nombre'])) ? $_POST['nombre'] : '';
