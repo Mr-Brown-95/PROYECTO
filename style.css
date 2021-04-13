@@ -1,0 +1,43 @@
+.text-muted {
+    color: #c5c7cc; }
+
+.color-gray {
+    color: #444444; }
+
+.color-blue {
+    color: #30a5ff; }
+
+.color-teal {
+    color: #1ebfae; }
+
+.color-orange {
+    color: #ffb53e; }
+
+.color-red {
+    color: #f9243f; }
+
+
+.fa-xl {
+    font-size: 2em; }
+
+.panel-widget .panel-footer {
+    border: 0;
+    text-align: center; }
+
+.panel-widget .panel-footer a {
+    color: #999; }
+
+.panel-widget .panel-footer a:hover {
+    color: #666;
+    text-decoration: none; }
+
+.panel-widget .text-muted {
+    margin-top: -6px;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 0.8em; }
+
+.panel-widget .large {
+    color: #373b45;
+    font-size: 3em; }
+

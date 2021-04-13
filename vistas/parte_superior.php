@@ -28,6 +28,8 @@ include 'loginSecurity.php';
 
     <!--CSS para reloj-->
     <link rel="stylesheet" href="reloj.css">
+
+    <link rel="stylesheet" href="style.css">
     
 </head>
 
