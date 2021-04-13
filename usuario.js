@@ -92,6 +92,7 @@ $("#formPersonas").submit(function(e){
         dataType: "json",
         data:{nombreUsuario:nombreUsuario, usuario:usuario, password:password, privilegios:privilegios, activo:activo, id:id, opcion:opcion},
         success: function(data){
+            console.log( data );
             var lengthData = data.length - 1 ;
 
             id = data[lengthData].id;

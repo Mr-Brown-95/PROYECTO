@@ -7,15 +7,14 @@ $pdo = new Conexion();;
 $pasillo = (isset($_POST['pasillo'])) ? $_POST['pasillo'] : '';
 $rack = (isset($_POST['rack'])) ? $_POST['rack'] : '';
 $nivel = (isset($_POST['nivel'])) ? $_POST['nivel'] : '';
-$idEmpleado = (isset($_POST['idEmpleado'])) ? $_POST['idEmpleado'] : '';
 $opcion = (isset($_POST['opcion'])) ? $_POST['opcion'] : '';
 $id = (isset($_POST['id'])) ? $_POST['id'] : '';
 
 switch ($opcion) {
     case 1: //alta
 
-        $query2 = $pdo->prepare("INSERT INTO ubicacion (pasillo, rack, nivel, idEmpleado) 
-        VALUES('$pasillo', '$rack', '$nivel', '$idEmpleado') ");
+        $query2 = $pdo->prepare("INSERT INTO ubicacion (pasillo, rack, nivel) 
+        VALUES('$pasillo', '$rack', '$nivel') ");
         $query2->execute();
 
         $query2 = $pdo->prepare("SELECT * FROM ubicacion ");
@@ -24,7 +23,7 @@ switch ($opcion) {
         break;
     case 2: //modificación
 
-        $query2 = $pdo->prepare("UPDATE ubicacion SET pasillo='$pasillo', rack='$rack', nivel='$nivel', idEmpleado='$idEmpleado' WHERE id='$id' ");
+        $query2 = $pdo->prepare("UPDATE ubicacion SET pasillo='$pasillo', rack='$rack', nivel='$nivel' WHERE id='$id' ");
         $query2->execute();
 
         $query2 = $pdo->prepare("SELECT * FROM ubicacion");

@@ -53,7 +53,7 @@ foreach ($Usuarios as $usuario);
                     <div class="panel panel-red panel-widget ">
                         <div class="row no-padding"><em class="fa fa-xl fa-pallet color-teal"></em>
                             <div class="large"><?php echo $recibo['SUM(cantidadEntrada)'] ?></div>
-                            <div class="text-muted">Recibo</div>
+                            <div class="text-muted">Ultimo Recibo</div>
                         </div>
                     </div>
                 </div>
@@ -61,7 +61,7 @@ foreach ($Usuarios as $usuario);
                     <div class="panel panel-red panel-widget ">
                         <div class="row no-padding"><em class="fa fa-xl fa-pallet color-red"></em>
                             <div class="large"><?php echo $embarque['SUM(cantidadSalida)'] ?></div>
-                            <div class="text-muted">Embarque</div>
+                            <div class="text-muted">Ultimo Embarque</div>
                         </div>
                     </div>
                 </div>

@@ -34,7 +34,6 @@
                                 <th>Pasillo</th>
                                 <th>Rack</th>
                                 <th>Nivel</th>
-                                <th>ID Empleado</th>
                                 <th>Acciones</th>
                             </tr>
                             </thead>
@@ -47,7 +46,6 @@
                                     <td><?php echo $dat['pasillo'] ?></td>
                                     <td><?php echo $dat['rack'] ?></td>
                                     <td><?php echo $dat['nivel'] ?></td>
-                                    <td><?php echo $dat['idEmpleado'] ?></td>
                                     <td></td>
                                 </tr>
                                 <?php
@@ -83,10 +81,6 @@
                             <div class="form-group">
                                 <label for="nivel" class="col-form-label">Nivel:</label>
                                 <input type="text" class="form-control" id="nivel">
-                            </div>
-                            <div class="form-group">
-                                <label for="idEmpleado" class="col-form-label">ID Empleado:</label>
-                                <input type="number" class="form-control" id="idEmpleado">
                             </div>
                         </div>
                         <div class="modal-footer">

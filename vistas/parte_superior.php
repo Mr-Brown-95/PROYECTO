@@ -164,9 +164,7 @@ include 'loginSecurity.php';
             <!-- Nav Item - User Information -->
             <li class="nav-item dropdown no-arrow">
               <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  <span class="mr-2 d-none d-lg-inline text-gray-600 small" >ID Empleado:</span>
-                  <span class="mr-2 d-none d-lg-inline text-gray-600 small" id="User"><?php echo $_SESSION['IdUsuario']; ?></span>
-                  <span class="mr-2 d-none d-lg-inline text-gray-600 small"> | <?php echo $_SESSION['nombreUsuario']; ?></span>
+                  <span class="mr-2 d-none d-lg-inline text-gray-600 small"><?php echo $_SESSION['nombreUsuario']; ?></span>
                   <?php
                   if ($_SESSION['foto'] == '') {
                       echo '<img src="img/profileUser.svg" class="img-profile rounded-circle" >';

@@ -42,12 +42,10 @@ $(document).ready(function(){
         pasillo = fila.find('td:eq(1)').text();
         rack = fila.find('td:eq(2)').text();
         nivel = fila.find('td:eq(3)').text();
-        idEmpleado = parseInt(fila.find('td:eq(4)').text());
 
         $("#pasillo").val(pasillo);
         $("#rack").val(rack);
         $("#nivel").val(nivel);
-        $("#idEmpleado").val(idEmpleado);
 
         opcion = 2; //editar
 
@@ -82,12 +80,11 @@ $(document).ready(function(){
         pasillo = $.trim($("#pasillo").val());
         rack = $.trim($("#rack").val());
         nivel = $.trim($("#nivel").val());
-        idEmpleado = $.trim($("#idEmpleado").val());
         $.ajax({
             url: "bd/localidadCrud.php",
             type: "POST",
             dataType: "json",
-            data:{pasillo:pasillo, rack:rack, nivel:nivel, idEmpleado:idEmpleado, id:id, opcion:opcion},
+            data:{pasillo:pasillo, rack:rack, nivel:nivel, id:id, opcion:opcion},
             success: function(data){
 
                 var lengthData = data.length - 1 ;
@@ -96,9 +93,8 @@ $(document).ready(function(){
                 pasillo = data[lengthData].pasillo;
                 rack = data[lengthData].rack;
                 nivel = data[lengthData].nivel;
-                idEmpleado = data[lengthData].idEmpleado;
-                if(opcion == 1){tablaUbicacion.row.add([id,pasillo,rack,nivel,idEmpleado]).draw();}
-                else{tablaUbicacion.row(fila).data([id,pasillo,rack,nivel,idEmpleado]).draw();}
+                if(opcion == 1){tablaUbicacion.row.add([id,pasillo,rack,nivel]).draw();}
+                else{tablaUbicacion.row(fila).data([id,pasillo,rack,nivel]).draw();}
             }
         });
         $("#modalUbicacionCRUD").modal("hide");

@@ -28,8 +28,19 @@ switch ($opcion) {
         break;
     case 3://
         //, IdEmpSurte = 'IdEmpSurte'
-        $query2 = $pdo->prepare("UPDATE producto SET fechaSalida = '$fechaSalida', cantidadSalida = '$cantidadSalida'WHERE id = '$id'");
+        $query2 = $pdo->prepare("UPDATE producto SET fechaSalida = '$fechaSalida', cantidadSalida = '$cantidadSalida' WHERE id = '$id'");
         $query2->execute();
+
+        $existencia1 =$pdo->prepare("SELECT existencia FROM producto WHERE id='$id'");
+        $existencia1->execute();
+        $Stock=$existencia1->fetchAll(PDO::FETCH_ASSOC);
+
+        foreach ($Stock as $stock);
+        $oldStock=$stock['existencia'];
+        $newStock= $oldStock - $cantidadSalida;
+
+        $newExistencia = $pdo->prepare("UPDATE producto SET existencia = '$newStock' WHERE id = '$id'");
+        $newExistencia->execute();
 
         $query2 = $pdo->prepare("SELECT * FROM producto");
         $query2->execute();

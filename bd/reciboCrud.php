@@ -31,6 +31,17 @@ switch ($opcion) {
         $query2 = $pdo->prepare("UPDATE producto SET fechaEntrada = '$fechaEntrada', cantidadEntrada = '$cantidadEntrada'WHERE id = '$id'");
         $query2->execute();
 
+        $existencia =$pdo->prepare("SELECT existencia FROM producto WHERE id='$id'");
+        $existencia->execute();
+        $Stock=$existencia->fetchAll(PDO::FETCH_ASSOC);
+
+        foreach ($Stock as $stock);
+        $oldStock=$stock['existencia'];
+        $newStock= $oldStock + $cantidadEntrada;
+
+        $newExistencia = $pdo->prepare("UPDATE producto SET existencia = '$newStock' WHERE id = '$id'");
+        $newExistencia->execute();
+
         $query2 = $pdo->prepare("SELECT * FROM producto");
         $query2->execute();
         $data = $query2->fetchAll(PDO::FETCH_ASSOC);

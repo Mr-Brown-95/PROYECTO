@@ -75,8 +75,9 @@ $( document ).ready( function () {
     var fechaSalida = year + "-" + mes + "-" + diaSemana;
     //agregar Embarque
     $( "#formEmbarque" ).submit( function (e) {
+
+
         opcion = 3;
-        e.preventDefault();
         id = $( '#idE' ).val()
         nombre = $.trim( $( "#nombreE" ).val() );
         descripcion = $.trim( $( "#descripcionE" ).val() );
@@ -98,8 +99,9 @@ $( document ).ready( function () {
                 opcion: opcion
             },
             success: function (data) {
-                var lengthData = data.length - 1 ;
 
+                var lengthData = data.length - 1 ;
+                console.log(data);
                 id = data[lengthData].id;
                 nombre = data[lengthData].nombre;
                 descripcion = data[lengthData].descripcion;
@@ -108,15 +110,37 @@ $( document ).ready( function () {
                 fechaSalida = data[lengthData].fechaSalida;
                 IdEmpSurte = data[lengthData].IdEmpSurte;
 
-                if (opcion == 3) {
-                    tablaEmbarque.row.add( [id, nombre, descripcion, categoria, cantidadSalida, fechaSalida, IdEmpSurte] ).draw();
-                } else {
-                    tablaEmbarque.row( fila ).data( [id, nombre, descripcion, categoria, cantidadSalida, fechaSalida, IdEmpSurte] ).draw();
-                }
+                jsBuscar();
             }
         } );
         $( "#modalEmbarqueCRUD" ).modal( "hide" );
 
     } );
+    //función que realiza la busqueda
+    function jsBuscar(){
 
+        //obtenemos el valor insertado a buscar
+        buscar = $( '#idE' ).val()
+
+        //realizamos el recorrido solo por las celdas que contienen el código, que es la primera
+        $("#tablaEmbarque tr").find('td:eq(0)').each(function () {
+
+            //obtenemos el codigo de la celda
+            id = $(this).html();
+            //obtenemos el numero de la fila
+            fila = $( this ).closest( "tr" );
+            //comparamos para ver si el código es igual a la busqueda
+            if(id==buscar){
+
+                if (opcion == 3) {
+                    tablaEmbarque.row.add( [id, nombre, descripcion, categoria, cantidadSalida, fechaSalida, IdEmpSurte] ).draw();
+                } else {
+                    tablaEmbarque.row( fila ).data( [id, nombre, descripcion, categoria, cantidadSalida, fechaSalida, IdEmpSurte] ).draw();
+                }
+
+            }
+
+        })
+
+    }// fin busquefa
 } );//fin

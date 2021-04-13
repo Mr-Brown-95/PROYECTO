@@ -2,7 +2,6 @@ $( document ).ready( function () {
     tablaRecibo = $( "#tablaRecibo" ).DataTable( {
         "columnDefs": [{
             "data": null,}],
-
         //Para cambiar el lenguaje a español
         "language": {
             "lengthMenu": "Mostrar _MENU_ registros",
@@ -76,6 +75,8 @@ $( document ).ready( function () {
     var fechaEntrada = year + "-" + mes + "-" + diaSemana;
     //agregar recibo
     $( "#formRecibo" ).submit( function (e) {
+
+
         opcion = 3;
         id = $( '#idR' ).val()
         nombre = $.trim( $( "#nombreR" ).val() );
@@ -98,6 +99,7 @@ $( document ).ready( function () {
                 opcion: opcion
             },
             success: function (data) {
+
                 var lengthData = data.length - 1 ;
                 console.log(data);
                 id = data[lengthData].id;
@@ -108,16 +110,37 @@ $( document ).ready( function () {
                 fechaEntrada = data[lengthData].fechaEntrada;
                 IdEmpRecibo = data[lengthData].IdEmpRecibo;
 
+                jsBuscar();
+            }
+        } );
+        $( "#modalReciboCRUD" ).modal( "hide" );
+
+    } );
+    //función que realiza la busqueda
+    function jsBuscar(){
+
+        //obtenemos el valor insertado a buscar
+        buscar = $( '#idR' ).val()
+
+        //realizamos el recorrido solo por las celdas que contienen el código, que es la primera
+        $("#tablaRecibo tr").find('td:eq(0)').each(function () {
+
+            //obtenemos el codigo de la celda
+            id = $(this).html();
+            //obtenemos el numero de la fila
+            fila = $( this ).closest( "tr" );
+            //comparamos para ver si el código es igual a la busqueda
+            if(id==buscar){
 
                 if (opcion == 3) {
                     tablaRecibo.row.add( [id, nombre, descripcion, categoria, cantidadEntrada, fechaEntrada, IdEmpRecibo] ).draw();
                 } else {
                     tablaRecibo.row( fila ).data( [id, nombre, descripcion, categoria, cantidadEntrada, fechaEntrada, IdEmpRecibo] ).draw();
                 }
-            }
-        } );
-        $( "#modalReciboCRUD" ).modal( "hide" );
 
-    } );
+            }
+
+        })
+    }//fin busqueda
 
 } );//fin
