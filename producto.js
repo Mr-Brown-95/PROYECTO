@@ -24,11 +24,11 @@ $( document ).ready( function () {
         }
     } );
 
-    $( "#btnNuevo" ).click( function () {
+    $( "#btnNuevoP" ).click( function () {
         $( "#formProducto" ).trigger( "reset" );
         $( ".modal-header" ).css( "background-color", "#1cc88a" );
         $( ".modal-header" ).css( "color", "white" );
-        $( ".modal-title" ).text( "Nueva Producto" );
+        $( ".modal-title" ).text( "Nuevo Producto" );
         $( "#modalProductoCRUD" ).modal( "show" );
         id = null;
         opcion = 1; //alta
